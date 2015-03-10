@@ -1,0 +1,18 @@
+# caustic.rib
+# Author: Divyanshu Grover <divyanshu@cse.iitb.ac.in>
+# Date: 07/Mar/2015
+#
+Display "transformer" "file" "rgb" 
+Format 600 400 1
+Projection "perspective" "fov" [30]
+# Translate Camera (moves world origin 10 units towards +Z)
+Translate 0 0 10
+WorldBegin 
+  LightSource "ambientlight" 1 "intensity" [0.6]
+  LightSource "distantlight" 2 "intensity" 0.9 "from" [-3 5 -4] "to" [0 0 0]
+  # Define a unit cylinder at 0 0 0
+  Color [0.6 0.6 0.0]
+  Surface "shinymetal"
+  Rotate 90 0 0 1
+  Cylinder 1 -1 1 360
+WorldEnd

@@ -1,0 +1,33 @@
+Pixar's PRMan is installed on 10.105.21.12. This is a server in the graphics lab. Given below are account userid's for the various groups, the password is the last two digits in the userid
+
+cs775_01: Divyanshu Grover+Rajendra HN
+cs775_02: Chinta Nitish Chandra+Kota Mahindar
+cs775_03: Ranveer Aggarwal+Abhinav Gupta
+cs775_04: Vikas Garg+Karan Ganju
+cs775_05: Jaseem Umar M+Heena Gupta
+cs775_06: Aditya Prakash+Ankur Rawat
+cs775_08: Rakesh Mistry+Sanjeev Mk
+
+Change your passwords using the passwd command after login.
+
+To login use, ssh -X cs775_XX@10.105.21.12
+
+to check the PRMan is working try rendering the teapot.rib file in your home folders with
+
+prman -d x11 teapot.rib
+
+If it works - it should show a window with a pink teapot!
+--
+
+Assignment 2 for CS775 is up. You can find the link on the course page at:
+
+http://www.cse.iitb.ac.in/~paragc/teaching/2015/cs775/index.shtml#Assignments
+
+Please read the assignment document carefully. Start working on it as soon as you can - plan it well before you start coding. Feel free to ask me any doubts that you may have.
+
+best wishes,
+parag
+_______________________________________________
+CS775 mailing list
+CS775@cse.iitb.ac.in
+http://miller.cse.iitb.ac.in/mailman/listinfo/cs775
