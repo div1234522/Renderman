@@ -1,5 +1,5 @@
 # caustic.rib
-# Author: Divyanshu Grover <divyanshu@cse.iitb.ac.in>
+# Author: Rajendra H N <rajendrahn@cse.iitb.ac.in> and Idiot Divyanshu Grover <divyanshu@cse.iitb.ac.in>
 # Date: 07/Mar/2015
 #
 Display "transformer" "file" "rgb" 
@@ -8,12 +8,228 @@ Projection "perspective" "fov" [30]
 # Translate Camera (moves world origin 10 units towards +Z)
 Translate 0 0 10
 WorldBegin 
-  LightSource "ambientlight" 1 "intensity" [0.6]
-  LightSource "distantlight" 2 "intensity" 0.9 "from" [-3 5 -4] "to" [0 0 0]
-  # Define a unit cylinder at 0 0 0
-  Color [0.6 0.6 0.0]
-  Surface "shinymetal"
-  Rotate 90 0 0 1
-  Cylinder 1 -1 1 360
-  
+    LightSource "ambientlight" 1 "intensity" [0.6]
+    LightSource "distantlight" 2 "intensity" 0.9 "from" [-3 5 -4] "to" [0 0 0]
+    Color [0.4 0.2 0.0]
+#Table
+Surface "plastic"
+AttributeBegin
+    Polygon "P" [-10 -4 60  10 -4 60 10 -4 40 -10 -4 40]
+AttributeEnd
+AttributeBegin
+    Translate -9 -9 59
+    Rotate 90 1 0 0
+    Cylinder 0.5 -5 5 360
+AttributeEnd
+AttributeBegin
+    Translate 9 -9 59
+    Rotate 90 1 0 0
+    Cylinder 0.5 -5 5 360
+AttributeEnd
+AttributeBegin
+    Translate 9 -9 41
+    Rotate 90 1 0 0
+    Cylinder 0.5 -5 5 360
+AttributeEnd
+AttributeBegin
+    Translate -9 -9 41
+    Rotate 90 1 0 0
+    Cylinder 0.5 -5 5 360
+AttributeEnd
+#floor
+Color [0.8 0.8 0.8]
+AttributeBegin
+    Polygon "P" [-100 -13 100  100 -13 100 100 -13 0 -100 -13 0]
+AttributeEnd
+#front wall
+AttributeBegin
+    Polygon "P" [-30 -13 100  -30 20 100 30 20 100 30 -13 100]
+AttributeEnd
+#Roof
+AttributeBegin
+    Polygon "P" [-30 20 100  30 20 100 30 20 0 -30 20 0]
+AttributeEnd
+Color [0.8 0 0]
+#left side wall
+AttributeBegin
+    Polygon "P" [-30 -13 0  -30 20 0 -30 20 100 -30 -13 100]
+AttributeEnd
+#right side wall
+Color [0 0 0.8]
+AttributeBegin
+    Polygon "P" [30 -13 0  30 20 0 30 20 100 30 -13 100]
+AttributeEnd
+
+
+#Transformer
+Surface "shinymetal"
+TransformBegin
+Translate 0 0 50
+Color [0.6 0.6 0.0]
+#Body
+    AttributeBegin
+        Rotate 90 1 0 0
+        Cylinder 1 -1 1 360
+    AttributeEnd
+#head
+    TransformBegin
+        Translate 0 1 0
+        Color [0.6 0.6 0.6]
+        AttributeBegin
+            Rotate 90 1 0 0
+            Cylinder 0.2 -0.5 0.5 360
+        AttributeEnd
+        Color [0.6 0.6 0.0]
+        Translate 0 1.5 0
+        AttributeBegin
+            Rotate 90 1.5 0 0
+            Cylinder 0.5 -0. 1 360
+        AttributeEnd
+        Color [0.6 0.0 0.0]
+        AttributeBegin
+            Translate -0.3 -0.3 -0.5
+            Sphere 0.1 -1 1 360
+        AttributeEnd
+        AttributeBegin
+            Translate 0.3 -0.3 -0.5
+            Sphere 0.1 -1 1 360
+        AttributeEnd
+        AttributeBegin
+            Color [0.6 0.6 0.6]
+            Translate 0 -0.6 -0.5
+            Rotate 100 1 0 0
+            Cylinder 0.1 -0.25 0.25 360
+        AttributeEnd
+    TransformEnd
+#Left hand
+    TransformBegin
+        Translate -1 1 0
+        Color [0.6 0.6 0.6]
+        Sphere 0.65 -1 1 360
+        TransformBegin
+            Translate -1.1 0.5 0
+            AttributeBegin
+                Translate 0.5 -0.5 0
+                Rotate 90 1 0 0
+                Rotate 90 0 1 0
+                Color [0.6 0.6 0.0]
+                Cylinder 0.25 -1 1 360
+            AttributeEnd
+            Translate  -0.25 -0.5 0
+            Color [0.6 0.6 0.6]
+            Sphere 0.55 -1 1 360
+            Translate -1.1 0.5 0
+            AttributeBegin
+                Translate 0.5 -0.5 0
+                Rotate 90 1 0 0
+                Rotate 90 0 1 0
+                Color [0.6 0.6 0.0]
+                Cylinder 0.25 -1 1 360
+            AttributeEnd
+            Translate  -0.25 -0.5 0
+            Color [0.6 0.6 0.6]
+            Sphere 0.5 -1 1 360
+        TransformEnd
+    TransformEnd
+#Right hand
+    TransformBegin
+        Rotate 180 0 1 0
+        TransformBegin
+            Translate -1 1 0
+            Color [0.6 0.6 0.6]
+            Sphere 0.65 -1 1 360
+            TransformBegin
+                Translate -1.1 0.5 0
+                AttributeBegin
+                    Translate 0.5 -0.5 0
+                    Rotate 90 1 0 0
+                    Rotate 90 0 1 0
+                    Color [0.6 0.6 0.0]
+                    Cylinder 0.25 -1 1 360
+                AttributeEnd
+                Translate  -0.25 -0.5 0
+                Color [0.6 0.6 0.6]
+                Sphere 0.55 -1 1 360
+                Translate -1.1 0.5 0
+                AttributeBegin
+                    Translate 0.5 -0.5 0
+                    Rotate 90 1 0 0
+                    Rotate 90 0 1 0
+                    Color [0.6 0.6 0.0]
+                    Cylinder 0.25 -1 1 360
+                AttributeEnd
+                Translate  -0.25 -0.5 0
+                Color [0.6 0.6 0.6]
+                Sphere 0.5 -1 1 360
+            TransformEnd
+        TransformEnd
+    TransformEnd
+#left leg
+    TransformBegin
+        Rotate 90 0 0 1
+        TransformBegin
+            Translate -1 1 0
+            Color [0.6 0.6 0.6]
+            Sphere 0.65 -1 1 360
+            TransformBegin
+                Translate -1.1 0.5 0
+                AttributeBegin
+                    Translate 0.5 -0.5 0
+                    Rotate 90 1 0 0
+                    Rotate 90 0 1 0
+                    Color [0.6 0.6 0.0]
+                    Cylinder 0.25 -1 1 360
+                AttributeEnd
+                Translate  -0.25 -0.5 0
+                Color [0.6 0.6 0.6]
+                Sphere 0.55 -1 1 360
+                Translate -1.1 0.5 0
+                AttributeBegin
+                    Translate 0.5 -0.5 0
+                    Rotate 90 1 0 0
+                    Rotate 90 0 1 0
+                    Color [0.6 0.6 0.0]
+                    Cylinder 0.25 -1 1 360
+                AttributeEnd
+                Translate  -0.25 -0.5 0
+                Color [0.6 0.6 0.6]
+                Sphere 0.5 -1 1 360
+            TransformEnd
+         TransformEnd
+     TransformEnd
+#right leg
+    TransformBegin
+        Rotate 180 0 1 0
+        Rotate 90 0 0 1
+        TransformBegin
+            Translate -1 1 0
+            Color [0.6 0.6 0.6]
+            Sphere 0.65 -1 1 360
+            TransformBegin
+                Translate -1.1 0.5 0
+                AttributeBegin
+                    Translate 0.5 -0.5 0
+                    Rotate 90 1 0 0
+                    Rotate 90 0 1 0
+                    Color [0.6 0.6 0.0]
+                    Cylinder 0.25 -1 1 360
+                AttributeEnd
+                Translate  -0.25 -0.5 0
+                Color [0.6 0.6 0.6]
+                Sphere 0.55 -1 1 360
+                Translate -1.1 0.5 0
+                AttributeBegin
+                    Translate 0.5 -0.5 0
+                    Rotate 90 1 0 0
+                    Rotate 90 0 1 0
+                    Color [0.6 0.6 0.0]
+                    Cylinder 0.25 -1 1 360
+                AttributeEnd
+                Translate  -0.25 -0.5 0
+                Color [0.6 0.6 0.6]
+                Sphere 0.5 -1 1 360
+            TransformEnd
+        TransformEnd
+    TransformEnd
+TransformEnd
 WorldEnd
